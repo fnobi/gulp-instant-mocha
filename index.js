@@ -4,7 +4,7 @@ var gutil = require('gulp-util');
 var through = require('through2');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
-var TmpTestHtml = require(__dirname + '/lib/TmpTestHtml');
+var TmpMochaRunner = require(__dirname + '/lib/TmpMochaRunner');
 
 module.exports = function (opts) {
     var buffers = [];
@@ -16,14 +16,14 @@ module.exports = function (opts) {
 
     function flush(cb) {
         opts.testCode = Buffer.concat(buffers).toString();
-        var tmpTestHtml = new TmpTestHtml(opts);
+        var tmpMochaRunner = new TmpMochaRunner(opts);
 
         async.series([function (next) {
-            gutil.log(gutil.colors.green('[create html]', tmpTestHtml.dest));
-            tmpTestHtml.writeFile(next);
+            gutil.log(gutil.colors.green('[create html]', tmpMochaRunner.dest));
+            tmpMochaRunner.writeFile(next);
         }, function (next) {
             gutil.log(gutil.colors.green('[run mocha]'));
-            gulp.src(tmpTestHtml.dest)
+            gulp.src(tmpMochaRunner.dest)
                 .pipe(mochaPhantomJS())
                 .on('end', next);
         }], cb);
