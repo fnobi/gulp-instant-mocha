@@ -1,14 +1,16 @@
 {
   "name": "gulp-instant-mocha",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Create mocha html & run mocha test with Phantom.js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release-patch": "grunt release:patch",
+    "release-minor": "grunt release:minor",
+    "release-major": "grunt release:major"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fnobi/gulp-instant-mocha.git"
+    "url": "https://github.com/fnobi/gulp-instant-mocha.git"
   },
   "keywords": [
     "gulpplugin",
@@ -29,5 +31,9 @@
     "gulp-util": "^3.0.7",
     "mocha": "^2.3.4",
     "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt-cli": "0.1.*",
+    "grunt-release": "0.13.*"
   }
 }
