@@ -1,6 +1,6 @@
 {
   "name": "gulp-instant-mocha",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Create mocha html & run mocha test with Phantom.js.",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
     "grunt-cli": "0.1.*",
     "grunt-release": "0.13.*"
   }
