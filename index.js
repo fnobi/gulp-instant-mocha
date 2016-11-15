@@ -25,12 +25,8 @@ module.exports = function (opts) {
             gutil.log(gutil.colors.green('[run mocha]'));
             gulp.src(tmpMochaRunner.dest)
                 .pipe(mochaPhantomJS())
-                .on('error', next)
-                .on('end', next);
-        }], function (err) {
-            console.log('callback', err);
-            cb();
-        });
+                .on('finish', next);
+        }], cb);
     }
 
     return through.obj(transform, flush);
