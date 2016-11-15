@@ -1,6 +1,6 @@
 {
   "name": "gulp-instant-mocha",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create mocha html & run mocha test with Phantom.js.",
   "main": "index.js",
   "scripts": {
